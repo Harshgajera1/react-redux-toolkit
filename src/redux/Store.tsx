@@ -1,13 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import CounterReducer from './slices/CounterSlice'
-import counterSlice from './slices/data'
+import counterSlice from './slices/FormData'
 
 export const store = configureStore({
     reducer : {
         counter : CounterReducer,
-        data : counterSlice,
+        formdata : counterSlice,
         masterdata : CounterReducer,
-        formdata : CounterReducer,
         login : CounterReducer,
         more : CounterReducer,
         // posts: postsReducer,
