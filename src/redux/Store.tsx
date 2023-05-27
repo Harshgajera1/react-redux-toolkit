@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import CounterReducer from './slices/CounterSlice'
 import counterSlice from './slices/FormData'
+import { useDispatch, useSelector } from 'react-redux'
+import type { TypedUseSelectorHook } from 'react-redux'
 
 export const store = configureStore({
     reducer : {
@@ -9,12 +11,13 @@ export const store = configureStore({
         masterdata : CounterReducer,
         login : CounterReducer,
         more : CounterReducer,
-        // posts: postsReducer,
-        // comments: commentsReducer,
-        // users: usersReducer,
     }
 })
 
-export type RootState = ReturnType<typeof store.getState>
+type RootState = ReturnType<typeof store.getState>
+type AppDispatch = typeof store.dispatch
 
-export type AppDispatch = typeof store.dispatch
+// for data read
+export const useAppDispatch: () => AppDispatch = useDispatch
+// for actions
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { increment, decrement, incrementByAmount, clear } from './redux/slices/CounterSlice'
-import { useAppDispatch, useAppSelector } from './redux/hooks'
-import { formData } from './redux/slices/FormData'
-import { store } from './redux/Store'
+import { formData, clearFormData } from './redux/slices/FormData'
+import { store, useAppDispatch, useAppSelector } from './redux/Store'
 
 function App() {
 
@@ -40,6 +39,7 @@ function App() {
             <input name='fname' type='text' onChange={(e)=>dispatch(formData({ name: e.target.name, value: e.target.value }))}/><br/>
             <input name='lname' type='text' onChange={(e)=>dispatch(formData({ name: e.target.name, value: e.target.value }))}/><br/>
             <input name='age' type='number' onChange={(e)=>dispatch(formData({ name: e.target.name, value: e.target.value }))}/>
+            <button name='age' onClick={(e)=>dispatch(clearFormData())} >clear state</button>
           </div>
         </div>
       </header>
